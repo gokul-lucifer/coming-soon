@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotMyTicket - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #42a5f5;
+        }
+        .countdown {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">SpotMyTicket</div>
+        <h1>We're Launching Soon!</h1>
+        <p>Exciting events are coming your way. Stay tuned!</p>
+        <div class="countdown" id="countdown"></div>
+    </div>
+
+    <script>
+        function countdownTimer() {
+            const launchDate = new Date("2025-04-01T00:00:00").getTime();
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = launchDate - now;
+
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "We're live!";
+                    return;
+                }
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML = 
+                    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+
+        countdownTimer();
+    </script>
+</body>
+</html>
