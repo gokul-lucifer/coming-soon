@@ -6,19 +6,21 @@
     <title>SpotMyTicket - Coming Soon</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background: #0a0a0a;
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #0a0a0a;
+    color: #ffffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('antoine-barres.jpg') no-repeat center center/cover;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
         .container {
             max-width: 800px;
             padding: 20px;
@@ -40,11 +42,15 @@
             font-size: 1.5rem;
             margin-top: 20px;
         }
+        .myBrand{
+        
+            /* color:#ef6249 */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">SpotMyTicket</div>
+        <div class="logo">Spot<span class="myBrand">My</span>Ticket</div>
         <h1>We're Launching Soon!</h1>
         <p>Exciting events are coming your way. Stay tuned!</p>
         <div class="countdown" id="countdown"></div>
@@ -68,8 +74,8 @@
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                document.getElementById("countdown").innerHTML = 
-                    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                // document.getElementById("countdown").innerHTML = 
+                //     `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }, 1000);
         }
 
